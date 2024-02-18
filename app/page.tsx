@@ -1,6 +1,6 @@
 
 'use client'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import * as fal from '@fal-ai/serverless-client';
 import Image from 'next/image';
@@ -10,54 +10,51 @@ fal.config({
 });
 
 const seed = Math.floor(Math.random() * 100000);
-// const seed = 3;
 
 export default function Home() {
   const [input, setInput] = useState('bauhaus, mondrian, human, dramatic light, transparent, calder, makeup, male, realistic, spectacular transparent structure as helmet and costume transparent, close up, bauhaus background');
   const [image, setImage] = useState<string | null>(null);
   const [strength, setStrength] = useState(0.6);
 
-  // Properly type the ref with the expected type from react-webcam
   const webcamRef = useRef<Webcam>(null);
-  
-  // Adjust the type for intervalRef to hold a number, aligning with the return type of window.setInterval
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Ensure that baseArgs are defined within the component but outside of the useEffect or any function that might be recreated on each render
+  const baseArgs = useCallback(() => ({
+    sync_mode: true,
+    strength,
+    seed,
+  }), [strength]);
+
+  // Define getDataUrl function
+  const getDataUrl = useCallback(async () => {
+    return webcamRef.current?.getScreenshot();
+  }, [webcamRef]);
+
+  // Define captureImageAndSend within useEffect or as a useCallback if used outside of useEffect
   useEffect(() => {
-    // Define the capture interval
-    const captureInterval = 20; // Adjusted for demonstration; typically would be longer
-
-    // Set up the interval for capturing images
-    intervalRef.current = setInterval(() => {
-      captureImageAndSend();
-    }, captureInterval);
-
-    // Cleanup on component unmount
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+    const captureImageAndSend = async () => {
+      const dataUrl = await getDataUrl();
+      if (dataUrl) {
+        // Assuming send is a method from fal.realtime.connect
+        fal.realtime.connect('110602490-sdxl-turbo-realtime', {
+          connectionKey: 'realtime-nextjs-app',
+          onResult: (result) => {
+            if (result.error) return;
+            setImage(result.images[0].url);
+          },
+        }).send({
+          ...baseArgs(),
+          prompt: input,
+          image_url: dataUrl,
+        });
+      }
     };
-  }, [input]);
 
-  const { send } = fal.realtime.connect('110602490-sdxl-turbo-realtime', {
-    connectionKey: 'realtime-nextjs-app',
-    onResult(result) {
-      if (result.error) return;
-      setImage(result.images[0].url);
-    },
-  });
+    const captureInterval = 50; // Adjusted for demonstration
+    const intervalId = setInterval(captureImageAndSend, captureInterval);
 
-  async function captureImageAndSend() {
-    const imageSrc = webcamRef.current?.getScreenshot();
-    if (imageSrc) {
-      send({
-        sync_mode: true,
-        strength,
-        seed,
-        prompt: input,
-        image_url: imageSrc,
-      });
-    }
-  }
+    return () => clearInterval(intervalId);
+  }, [input, getDataUrl, baseArgs]);
 
   return (
     <main className="p-12">
@@ -77,15 +74,12 @@ export default function Home() {
         className='border rounded-lg p-2 w-full mb-2'
         value={input}
         onChange={async (e) => {
-          setInput(e.target.value)
-          let dataUrl = await getDataUrl()
-          send({
-            ...baseArgs,
-            prompt: e.target.value,
-            image_url: dataUrl
-          })
+          setInput(e.target.value);
+          // Directly call captureImageAndSend here if needed or leave it to be handled within useEffect
         }}
       />
+      
+      
       <div className='flex gap-4'>
         <div className="w-[550px] h-[550px] bg-gray-200">
           <Webcam
