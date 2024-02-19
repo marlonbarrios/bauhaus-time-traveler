@@ -102,7 +102,6 @@ export default function Home() {
             />
           </div>
         )}
-       ç
       </div>
     </main>
   );
