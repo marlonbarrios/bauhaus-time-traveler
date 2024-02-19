@@ -12,9 +12,9 @@ fal.config({
 const seed = Math.floor(Math.random() * 100000);
 
 export default function Home() {
-  const [input, setInput] = useState('bauhaus, mondrian, human, dramatic light, transparent, calder, makeup, male, realistic, spectacular transparent structure as helmet and costume transparent, close up, bauhaus background');
+  const [input, setInput] = useState('diverse human bodies, genders, ethnicities, ages and epochs, in the stile of bauhaus, mondrian, dramatic light,  calder mobiles hats, makeup bladerunner in eyes,  photo-realistic, spectacular transparent structure as helmet and body suit transparent, colorful goggles, bauhaus background');
   const [image, setImage] = useState<string | null>(null);
-  const [strength, setStrength] = useState(0.6);
+  const [strength, setStrength] = useState(0.48);
 
   const webcamRef = useRef<Webcam>(null);
 
@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <main className="p-12">
 <p className="text-xl mb-2">DUET IN LATENT SPACE 02| Fal SDXL Turbo</p>
-      <p className="text-xl mb-2">Queer Bauhaus | Concept, programming and performance by<a href='https://marlonbarrios.github.io/'> Marlon Barrios Solano</a></p>
+      <p className="text-xl mb-2">Bauhaus Time Traveler | Concept, programming and performance by<a href='https://marlonbarrios.github.io/'> Marlon Barrios Solano</a></p>
       <input
         type="range"
         min="0"
@@ -102,6 +102,7 @@ export default function Home() {
             />
           </div>
         )}
+       ç
       </div>
     </main>
   );
