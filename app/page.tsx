@@ -11,7 +11,7 @@ fal.config({
 const seed = Math.floor(Math.random() * 100000);
 
 export default function Home() {
-  const [input, setInput] = useState('diverse human bodies, genders, ethnicities, ages and epochs, in the stile of bauhaus, mondrian, dramatic light, calder mobiles hats, makeup bladerunner in eyes, photo-realistic, spectacular transparent structure as helmet and body suit transparent, colorful goggles, bauhaus background');
+  const [input, setInput] = useState('diverse human bodies, genders, ethnicities, ages and epochs, in the style of bauhaus, mondrian, dramatic light, calder mobiles hats, makeup bladerunner in eyes, photo-realistic, Mondrian room, spectacular transparent structure as helmet and body suit transparent, colorful goggles, bauhaus background');
   const [image, setImage] = useState<string | null>(null);
   const [strength, setStrength] = useState(0.48);
   const [audioSrc, setAudioSrc] = useState('/bauhaus.mp3'); // Initialize with the path to your audio file
