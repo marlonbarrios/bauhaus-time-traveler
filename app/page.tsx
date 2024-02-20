@@ -14,7 +14,7 @@ export default function Home() {
   const [input, setInput] = useState('diverse human bodies, genders, ethnicities, ages and epochs, in the stile of bauhaus, mondrian, dramatic light, calder mobiles hats, makeup bladerunner in eyes, photo-realistic, spectacular transparent structure as helmet and body suit transparent, colorful goggles, bauhaus background');
   const [image, setImage] = useState<string | null>(null);
   const [strength, setStrength] = useState(0.48);
-  const [audioSrc, setAudioSrc] = useState('/bauhau.mp3'); // Initialize with the path to your audio file
+  const [audioSrc, setAudioSrc] = useState('/bauhaus.mp3'); // Initialize with the path to your audio file
 
   const webcamRef = useRef<Webcam>(null);
 
@@ -62,9 +62,14 @@ export default function Home() {
       <div className='flex gap-4'>
         <div className="w-[550px] h-[550px] bg-gray-200">
           <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" width={650} height={650} className="w-full h-full"/>
-        
+          <div className="audio-player my-4">
+        <audio controls src={audioSrc}>
+          Your browser does not support the audio element.
+        </audio>
+      </div>
         </div>
         {/* Audio Player */}
+       
      
         {image && (
           <div className="w-[1050px] h-[1050px]">
