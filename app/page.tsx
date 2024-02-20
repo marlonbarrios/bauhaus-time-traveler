@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <main className="p-12">
-      <p className="text-xl mb-2">DUET IN LATENT SPACE 02| Bauhaus Time Traveler | Concept, programming and performance by<a href='https://marlonbarrios.github.io/'> Marlon Barrios Solano</a></p>
+      <p className="text-xl mb-2">DUET IN LATENT SPACE 02| Bauhaus Time Traveler | Concept, programming, sound design and performance by<a href='https://marlonbarrios.github.io/'> Marlon Barrios Solano</a></p>
       <input type="range" min="0" max="1" step="0.01" value={strength} className="w-full" onChange={(e) => setStrength(parseFloat(e.target.value))}/>
       <p>Strength: {strength}</p>
       <input className='border rounded-lg p-2 w-full mb-2' value={input} onChange={(e) => setInput(e.target.value)}/>
