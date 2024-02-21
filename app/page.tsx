@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <main className="p-12">
       <p className="text-xl mb-2">bauhaus time traveler | duet in <a href='https://en.wikipedia.org/wiki/Latent_spacelatent '>latent space</a> | concept, programming, sound design and performance by <a href='https://marlonbarrios.github.io/'>marlon barrios solano</a></p>
-      <p className="text-xl mb-2">created during artistic and research residency at <a href='https://lakestudiosberlin.com/'>Lake Studios Berlin</a> | February 2024</p>
+      <p className="text-xl mb-2">created during art and research residency at <a href='https://lakestudiosberlin.com/'>Lake Studios Berlin</a> | February 2024</p>
      
       
       <input className='border rounded-lg p-2 w-full mb-2' value={input} onChange={(e) => setInput(e.target.value)}/>
