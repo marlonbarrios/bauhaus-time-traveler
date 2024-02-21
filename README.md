@@ -18,6 +18,13 @@ The project is an amalgamation of various elements including software developmen
 - **Innovative Design:** Drawing inspiration from the Bauhaus movement with ideas of time travel.
 - **Sound Design & Performance:** Marlon Barrios Solano integrates sound landscapes and performance space in front of laptop.
 
+
+## Explore More
+
+- **Live Application:** Experience the Bauhaus Time Traveler in action [here](https://bauhaus-time-traveler.vercel.app/).
+- **Marlon Barrios Solano:** For more about Marlon, his projects, and how you can support his work, visit his [Linktree](https://linktr.ee/marlonbarriososolano).
+
+
 ## Getting Started with LCM Turbo
 
 LCM Turbo allows you to transform text into visuals instantly. Follow these steps to set up and start using the app.
@@ -64,14 +71,6 @@ Node.js is required to run the application and manage its dependencies.
 
    Open `http://localhost:3000` in your browser to see the app in action.
 
-### LIVE APP
-
-![Fal Real Time App Example](rt.gif)
-
-## Explore More
-
-- **Live Application:** Experience the Bauhaus Time Traveler in action [here](https://bauhaus-time-traveler.vercel.app/).
-- **Marlon Barrios Solano:** For more about Marlon, his projects, and how you can support his work, visit his [Linktree](https://linktr.ee/marlonbarriososolano).
 
 
 MIT License
