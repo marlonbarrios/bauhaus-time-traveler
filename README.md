@@ -18,13 +18,17 @@ The intention to perform actions in latent space, especially with a model, is to
 
 The notion of Bauhaus artists as embodiments of time travelers captures my imagination, painting them as navigators through speculative futures, escaping persecution, and finding solace in the purity of abstraction and geometry. In my fantasy, these "Bauhaus Time Travelers" move with speed and beauty, their journey a harmonious blend of geometries and fluidity, experimentation, and design. I envision them transcending the constraints of their era, embodying diverse genders, ethnicities, and ages, challenging the prevalent whiteness of the art world. This dream, rich with the potential of what could be, reimagines the Bauhaus legacy as a multidimensional space, vibrant with inclusivity, humor and the boundless exploration of form and function across time.
 
+
+https://github.com/marlonbarrios/bauhaus-time-traveler/assets/90220317/ef06537e-386d-48dd-b32c-016f3fe39960
+
+
 ## Deployment
 
 It can be an installation, a webpage, a live performance and/or an online lecture/performance.
 
 ### Features
 
-- **LCM Turbo:** Leveraging the power of Fal.ai for (almost) real-time, instant text-to-image conversion.
+- **LCM Turbo:** Leveraging the power of Fal.ai for (almost) real-time, instant image from webcam guided by text-to-image conversion.
 - **Soundtrack:** A specially composed soundtrack that users can play, enhancing the visual experience with a complementary sound space | created with AI Musicgen model.
 - **Innovative Design:** Drawing inspiration from the Bauhaus movement with ideas of time travel.
 - **Sound Design & Performance:** Marlon Barrios Solano integrates sound landscapes and performance space in front of laptop.
