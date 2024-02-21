@@ -1,4 +1,4 @@
-```
+
 # Bauhaus Time Traveler | Duet in Latent Space
 
 ![Image of performance](/image.png "image or performance")
