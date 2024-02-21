@@ -81,9 +81,9 @@ Node.js is required to run the application and manage its dependencies.
 
 
 
-MIT License
+## MIT License
 
-Copyright (c) [2024] [Marlon Barrios Solano]
+Copyright (c) 2024 Marlon Barrios Solano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
