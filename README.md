@@ -20,7 +20,7 @@ The notion of Bauhaus artists as embodiments of time travelers captures my imagi
 
 ## Deployment
 
-It can be an installion, a webpage, a live performance and an online performance lecture.
+It can be an installation, a webpage, a live performance and/or an online lecture/performance.
 
 ### Features
 
