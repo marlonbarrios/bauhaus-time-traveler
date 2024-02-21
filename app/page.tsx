@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import * as fal from '@fal-ai/serverless-client';
@@ -11,21 +11,44 @@ fal.config({
 const seed = Math.floor(Math.random() * 100000);
 
 export default function Home() {
-  const [input, setInput] = useState('diverse human bodies, genders, ethnicities, ages and epochs, in the style of bauhaus, mondrian, dramatic light, calder mobiles hats, makeup bladerunner in eyes, photo-realistic, Mondrian room, spectacular transparent structure as helmet and body suit transparent, colorful goggles, bauhaus background');
+  const [input, setInput] = useState('human body of diverse genders, ethnicities, ages and epochs; in the style of bauhaus, mondrian, dramatic light, calder mobiles hats, makeup bladerunner in eyes, photo-realistic, Mondrian room, spectacular sculptural transparent structure as helmets and body armor, colorful goggles, bauhaus background');
   const [image, setImage] = useState<string | null>(null);
-  const [strength, setStrength] = useState(0.48);
-  const [audioSrc, setAudioSrc] = useState('/bauhaus.mp3'); // Initialize with the path to your audio file
+  const [strength, setStrength] = useState(0.49);
+  const [audioSrc, setAudioSrc] = useState('/bauhaus.mp3');
 
   const webcamRef = useRef<Webcam>(null);
 
   const baseArgs = useCallback(() => ({
     sync_mode: true,
     strength,
-    seed,
   }), [strength]);
 
   const getDataUrl = useCallback(async () => {
-    return webcamRef.current?.getScreenshot();
+    const screenshot = webcamRef.current?.getScreenshot();
+    if (!screenshot) return null;
+
+    return new Promise((resolve) => {
+      const img = new window.Image();
+
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          console.error('Failed to get canvas context');
+          return;
+        }
+
+        // Flip the image by scaling the context
+        ctx.translate(canvas.width, 0);
+        ctx.scale(-1, 1); // Flip horizontally
+        ctx.drawImage(img, 0, 0);
+
+        resolve(canvas.toDataURL('image/jpeg'));
+      };
+      img.src = screenshot;
+    });
   }, [webcamRef]);
 
   useEffect(() => {
@@ -50,35 +73,37 @@ export default function Home() {
     const intervalId = setInterval(captureImageAndSend, captureInterval);
 
     return () => clearInterval(intervalId);
-  }, [input, getDataUrl, baseArgs]);
+  }, [getDataUrl, baseArgs, input]);
 
   return (
     <main className="p-12">
-      <p className="text-xl mb-2">DUET IN LATENT SPACE 02| Bauhaus Time Traveler | Concept, programming, sound design and performance by<a href='https://marlonbarrios.github.io/'> Marlon Barrios Solano</a></p>
-      <input type="range" min="0" max="1" step="0.01" value={strength} className="w-full" onChange={(e) => setStrength(parseFloat(e.target.value))}/>
-      <p>Strength: {strength}</p>
-      <input className='border rounded-lg p-2 w-full mb-2' value={input} onChange={(e) => setInput(e.target.value)}/>
+      <p className="text-xl mb-2">bauhaus time traveler | duet in <a href='https://en.wikipedia.org/wiki/Latent_spacelatent '>latent space</a> | concept, programming, sound design and performance by <a href='https://marlonbarrios.github.io/'>marlon barrios solano</a></p>
+      <p className="text-xl mb-2">created during artistic and research residency at <a href='https://lakestudiosberlin.com/'>Lake Studios Berlin</a> | February 2024</p>
+     
       
+      <input className='border rounded-lg p-2 w-full mb-2' value={input} onChange={(e) => setInput(e.target.value)}/>
+      <p><input type="range" min="0" max="1" step="0.01" value={strength} onChange={(e) => setStrength(parseFloat(e.target.value))}/> | Strength: {strength}</p>
       <div className='flex gap-4'>
-        <div className="w-[550px] h-[550px] bg-gray-200">
+     
+        <div className="w-[650px] h-[650px] bg-gray-200" style={{ transform: 'scaleX(-1)' }}>
           <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" width={650} height={650} className="w-full h-full"/>
           <div className="audio-player my-4">
-        <audio controls src={audioSrc}>
-          Your browser does not support the audio element.
-        </audio>
-      </div>
+          <p><audio controls src={audioSrc} style={{ transform: 'scaleX(-1)' }} >
+            Your browser does not support the audio element.
+          </audio></p>
         </div>
-        {/* Audio Player */}
+
+        </div>
        
-     
         {image && (
           <div className="w-[1050px] h-[1050px]">
             <Image src={image} width={1050} height={1050} alt="Processed image" layout="responsive"/>
+
           </div>
         )}
+       
       </div>
 
-      
     </main>
   );
 }
