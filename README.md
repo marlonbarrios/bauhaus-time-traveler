@@ -1,7 +1,7 @@
 
 # Bauhaus Time Traveler | Duet in Latent Space
 
-![Image of performance](/https://github.com/marlonbarrios/bauhaus-queer/blob/mondrian/public/image.jpg "image or performance")
+![Image of performance](https://github.com/marlonbarrios/bauhaus-queer/blob/mondrian/public/image.jpg "image or performance")
 
 ## About the Project
 
