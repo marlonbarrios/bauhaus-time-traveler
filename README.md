@@ -13,10 +13,10 @@ The project is an amalgamation of various elements including software developmen
 
 ### Features
 
-- **LCM Turbo:** Leveraging the power of Fal.ai for real-time, instant text-to-image conversion.
+- **LCM Turbo:** Leveraging the power of Fal.ai for (almost) real-time, instant text-to-image conversion.
 - **Soundtrack:** A specially composed soundtrack that users can play, enhancing the visual experience with a complementary sound space | created with AI Musicgen model.
-- **Innovative Design:** Drawing inspiration from the Bauhaus movement to meld modern technology with artistic creativity.
-- **Sound Design & Performance:** Marlon Barrios Solano's unique integration of digital art and sound landscapes.
+- **Innovative Design:** Drawing inspiration from the Bauhaus movement with ideas of time travel.
+- **Sound Design & Performance:** Marlon Barrios Solano integrates sound landscapes and performance space in front of laptop.
 
 ## Getting Started with LCM Turbo
 
