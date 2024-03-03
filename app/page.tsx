@@ -11,7 +11,7 @@ fal.config({
 const seed = Math.floor(Math.random() * 100000);
 
 export default function Home() {
-  const [input, setInput] = useState('only one human body of diverse genders, ethnicities, ages and epochs with spectacular sculptural transparent structure as helmets and body armor the style of bauhaus and mondrian,  dramatic light and plain background, calder mobiles hats, photo-realistic , colorful goggles');
+  const [input, setInput] = useState('only one human body of changing  genders, ethnicities, ages and epochs with strange and spectacular sculptural transparent structure as helmets, colorful goggles and body armor the style of bauhaus and mondrian,  dramatic light and plain background, calder mobiles hats, photo-realistic ');
   const [image, setImage] = useState<string | null>(null);
   const [strength, setStrength] = useState(0.49);
   const [audioSrc, setAudioSrc] = useState('/bauhaus.mp3');
