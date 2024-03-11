@@ -51,12 +51,15 @@ export default function Home() {
     });
   }, [webcamRef]);
 
+
+
+
   useEffect(() => {
     const captureImageAndSend = async () => {
       const dataUrl = await getDataUrl();
       if (dataUrl) {
         fal.realtime.connect('110602490-sdxl-turbo-realtime', {
-          connectionKey: 'realtime-nextjs-app',
+          connectionKey: 'fal-ai/fast-lightning-sdxl',
           onResult: (result) => {
             if (result.error) return;
             setImage(result.images[0].url);
