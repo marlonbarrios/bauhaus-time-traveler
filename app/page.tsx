@@ -13,7 +13,7 @@ const seed = Math.floor(Math.random() * 100000);
 export default function Home() {
   const [input, setInput] = useState('realistic only one human body of different   genders, ethnicities, ages and epochs with strange sculptural transparent  colorful goggles and body armor the style of bauhaus and mondrian,  dramatic light and plain background, calder mobiles hats, photo-realistic ');
   const [image, setImage] = useState<string | null>(null);
-  const [strength, setStrength] = useState(0.50);
+  const [strength, setStrength] = useState(0.49);
   const [audioSrc, setAudioSrc] = useState('/bauhaus.mp3');
 
   const webcamRef = useRef<Webcam>(null);
